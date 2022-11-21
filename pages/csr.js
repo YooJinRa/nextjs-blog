@@ -1,17 +1,14 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
-// SSR 동작 원리 확인
-export async function getServerSideProps() {
-  console.log("server");
-  return {
-    props: {
-      time: new Date().toISOString()
-    }
-  };
-}
+export default function CSR() {
+  const [time, setTime] = useState()
 
-export default function Home({ time }) {
+  useEffect(()=>{
+    console.log('client')
+    setTime(new Date().toISOString())
+  },[])
+
   return (
     <div className="container">
       <Head>
@@ -23,9 +20,6 @@ export default function Home({ time }) {
         <h1 className="title">
           {time}
         </h1>
-        <h1><Link href="/csr">CSR 동작 원리 확인</Link></h1>
-        <h1><Link href="/ssg">SSG 동작 원리 확인</Link></h1>
-        <h1><Link href="/isr">ISR 동작 원리 확인</Link></h1>
       </main>
 
       <footer>

@@ -1,17 +1,15 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from 'next/head'
 
-// SSR 동작 원리 확인
-export async function getServerSideProps() {
-  console.log("server");
+export async function getStaticProps() {
+  console.log('server')
+
   return {
-    props: {
-      time: new Date().toISOString()
-    }
-  };
+    props: { time: new Date().toISOString() },
+    revalidate: 1,
+  }
 }
 
-export default function Home({ time }) {
+export default function ISR({ time }) {
   return (
     <div className="container">
       <Head>
@@ -23,9 +21,6 @@ export default function Home({ time }) {
         <h1 className="title">
           {time}
         </h1>
-        <h1><Link href="/csr">CSR 동작 원리 확인</Link></h1>
-        <h1><Link href="/ssg">SSG 동작 원리 확인</Link></h1>
-        <h1><Link href="/isr">ISR 동작 원리 확인</Link></h1>
       </main>
 
       <footer>
