@@ -1,6 +1,15 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
-export default function Layout({ children }) {
+export async function getStaticProps() {
+  console.log('server')
+
+  return {
+    props: { time: new Date().toISOString() },
+    revalidate: 1,
+  }
+}
+
+export default function ISR({ time }) {
   return (
     <div className="container">
       <Head>
@@ -9,7 +18,7 @@ export default function Layout({ children }) {
       </Head>
 
       <main>
-        {children}
+        <h1 className="title">{time}</h1>
       </main>
 
       <footer>
@@ -18,8 +27,7 @@ export default function Layout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
 

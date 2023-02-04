@@ -4,7 +4,7 @@ export async function getStaticProps() {
   console.log('server')
 
   return {
-    props: { time: new Date().toISOString() }
+    props: { time: new Date().toISOString() },
   }
 }
 
@@ -17,9 +17,7 @@ export default function SSG({ time }) {
       </Head>
 
       <main>
-        <h1 className="title">
-          {time}
-        </h1>
+        <h1 className="title">{time}</h1>
       </main>
 
       <footer>
@@ -28,8 +26,7 @@ export default function SSG({ time }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
 
