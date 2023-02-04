@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 import Layout from 'components/Layout'
 import SubLayout from 'components/SubLayout'
+import { useRouter } from 'next/router'
 
 export default function CategorySlug() {
+  const router = useRouter()
+  const { slug, from } = router.query
   return (
     <>
-      <h1 className="title">Category Slug</h1>
+      <h1 className="title">
+        Category {slug} from {from}
+      </h1>
     </>
   )
 }

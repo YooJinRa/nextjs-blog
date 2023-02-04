@@ -18,6 +18,19 @@
 - pages/category/[slug].js -> /category/:slug
 - pages/[username]/info.js -> /:username/info
 
+### Shallow Routing
+
+- Dynamic Routes -> slug를 활용하는 방법
+- 다중 slug -> [user]/[info].js / [...slug].js
+- 옵셔널 slug -> [[...slug]].js
+- shallow Routing -> router.push(url, undefined, {shallow:true})
+
+### url을 바꾸는 방식
+
+- location.replace('url') : 로컬 state 유지 안됨(리렌더)
+- route.push(url) : 로컬 state 유지 / data fetching은 일어남
+- route.push(url, as, {shallow: true}) : 로컬 state 유지 / data fetching 안일어남
+
 ## Prettier 설정
 
 - yarn add -D prettier
