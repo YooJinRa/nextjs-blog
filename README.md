@@ -54,3 +54,16 @@ public
 ```
 
 - package.json에 prettier-fix 명령어 추가
+
+## API Routes
+
+- API : 프로그램 간의 연결
+- API Routes : Routing과 동일(파일기반 / Dynamic)
+- Middleware : 기본으로 제공되는 built in 외 추가 가능
+
+### Response
+
+- res.status(code)
+- res.json(body) : serializable object
+- res.redirect(code, url)
+- res.send(body) : string / object/ Buffer
